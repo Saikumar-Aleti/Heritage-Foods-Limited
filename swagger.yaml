@@ -1,0 +1,699 @@
+openapi: 3.0.0
+info:
+  title: Heritage Foods Limited
+  contact: {}
+  version: "1.0"
+servers:
+  - url: https://heritage-foods-limited-01.herokuapp.com/api/v1
+    variables: {}
+paths:
+  /auth/register:
+    post:
+      tags:
+        - Auth
+      summary: Register User
+      operationId: RegisterUser
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterUserRequest"
+            example:
+              firstName: firstNmae
+              lastName: lastName
+              email: youremail@mail.com
+              password: Secret@123
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Login User
+      operationId: LoginUser
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginUserRequest"
+            example:
+              email: youremail@mail.com
+              password: Secret@123
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+  /catalog/items:
+    get:
+      tags:
+        - Items
+      summary: Get All Items
+      operationId: GetAllItems
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    post:
+      tags:
+        - Items
+      summary: Create Item
+      operationId: CreateItem
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateItemRequest"
+            example:
+              description: Dairy Power
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /catalog/items/{item_id}:
+    parameters:
+      - in: path
+        name: item_id
+        schema:
+          type: string
+        required: true
+        description: The item ID
+    get:
+      tags:
+        - Items
+      summary: Get Single Item
+      operationId: GetSingleItem
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    patch:
+      tags:
+        - Items
+      summary: Update Single Item
+      operationId: UpdateSingleItem
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateSingleItemRequest"
+            example:
+              description: Saikuma
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    delete:
+      tags:
+        - Items
+      summary: Delete Single Item
+      operationId: DeleteSingleItem
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /catalog/regions:
+    get:
+      tags:
+        - Regions
+      summary: Get All Regions
+      operationId: GetAllRegions
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    post:
+      tags:
+        - Regions
+      summary: Create Region
+      operationId: CreateRegion
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateRegionRequest"
+            example:
+              name: WG and EG
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /catalog/regions/{region_id}:
+    parameters:
+      - in: path
+        name: region_id
+        schema:
+          type: string
+        required: true
+        description: The region ID
+    get:
+      tags:
+        - Regions
+      summary: Get Single Region
+      operationId: GetSingleRegion
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    patch:
+      tags:
+        - Regions
+      summary: Update Single Region
+      operationId: UpdateSingleRegion
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateSingleRegionRequest"
+            example:
+              name: Hyderabad
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    delete:
+      tags:
+        - Regions
+      summary: Delete Single Region
+      operationId: DeleteSingleRegion
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /catalog/packing:
+    get:
+      tags:
+        - Packing Types
+      summary: Get All Packing Types
+      operationId: GetAllPackingTypes
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    post:
+      tags:
+        - Packing Types
+      summary: Create Packing Type
+      operationId: CreatePackingType
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreatePackingTypeRequest"
+            example:
+              packing: PP
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /catalog/packing/{packing_id}:
+    parameters:
+      - in: path
+        name: packing_id
+        schema:
+          type: string
+        required: true
+        description: The packing ID
+    get:
+      tags:
+        - Packing Types
+      summary: Get Single Packing Type
+      operationId: GetSinglePackingType
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    patch:
+      tags:
+        - Packing Types
+      summary: Update Single Packing Type
+      operationId: UpdateSinglePackingType
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateSinglePackingTypeRequest"
+            example:
+              packing: PP1
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    delete:
+      tags:
+        - Packing Types
+      summary: Delete Single Packing Type
+      operationId: DeleteSinglePackingType
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /catalog/pellet-size:
+    get:
+      tags:
+        - Pellet Sizes
+      summary: Get All Pellet Sizes
+      operationId: GetAllPelletSizes
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    post:
+      tags:
+        - Pellet Sizes
+      summary: Create Pellet Size
+      operationId: CreatePelletSize
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreatePelletSizeRequest"
+            example:
+              pellet_size: 30MM
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /catalog/pellet-size/{pellet_size_id}:
+    parameters:
+      - in: path
+        name: pellet_size_id
+        schema:
+          type: string
+        required: true
+        description: The pellet-size ID
+    get:
+      tags:
+        - Pellet Sizes
+      summary: Get Single Pellet Size
+      operationId: GetSinglePelletSize
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    patch:
+      tags:
+        - Pellet Sizes
+      summary: Update Single Pellet Size
+      operationId: UpdateSinglePelletSize
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateSinglePelletSizeRequest"
+            example:
+              pellet_size: 12MM
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    delete:
+      tags:
+        - Pellet Sizes
+      summary: Delete Single Pellet Size
+      operationId: DeleteSinglePelletSize
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /catalog/skus:
+    get:
+      tags:
+        - SKUs
+      summary: Get All SKUs
+      operationId: GetAllSKUs
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    post:
+      tags:
+        - SKUs
+      summary: Create SKU
+      operationId: CreateSKU
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateSKURequest"
+            example:
+              sku_kgs: 125
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /catalog/skus/{sku_id}:
+    parameters:
+      - in: path
+        name: sku_id
+        schema:
+          type: string
+        required: true
+        description: The SKU ID
+    get:
+      tags:
+        - SKUs
+      summary: Get Single SKU
+      operationId: GetSingleSKU
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    patch:
+      tags:
+        - SKUs
+      summary: Update Single SKU
+      operationId: UpdateSingleSKU
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateSingleSKURequest"
+            example:
+              sku_kgs: 13
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    delete:
+      tags:
+        - SKUs
+      summary: Delete Single SKU
+      operationId: DeleteSingleSKU
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+components:
+  schemas:
+    RegisterUserRequest:
+      title: RegisterUserRequest
+      required:
+        - firstName
+        - lastName
+        - email
+        - password
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        firstName: firstName
+        lastName: lastName
+        email: youremail@mail.com
+        password: Secret@123
+    LoginUserRequest:
+      title: LoginUserRequest
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: youremail@mail.co
+        password: Secret@123
+    CreateItemRequest:
+      title: CreateItemRequest
+      required:
+        - description
+      type: object
+      properties:
+        description:
+          type: string
+      example:
+        description: Dairy Power
+    UpdateSingleItemRequest:
+      title: UpdateSingleItemRequest
+      required:
+        - description
+      type: object
+      properties:
+        description:
+          type: string
+      example:
+        description: Saikuma
+    CreateRegionRequest:
+      title: CreateRegionRequest
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: WG and EG
+    UpdateSingleRegionRequest:
+      title: UpdateSingleRegionRequest
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Hyderabad
+    CreatePackingTypeRequest:
+      title: CreatePackingTypeRequest
+      required:
+        - packing
+      type: object
+      properties:
+        packing:
+          type: string
+      example:
+        packing: PP
+    UpdateSinglePackingTypeRequest:
+      title: UpdateSinglePackingTypeRequest
+      required:
+        - packing
+      type: object
+      properties:
+        packing:
+          type: string
+      example:
+        packing: PP1
+    DeleteSinglePackingTypeRequest:
+      title: DeleteSinglePackingTypeRequest
+      required:
+        - packing
+      type: object
+      properties:
+        packing:
+          type: string
+      example:
+        packing: PP1
+    CreatePelletSizeRequest:
+      title: CreatePelletSizeRequest
+      required:
+        - pellet_size
+      type: object
+      properties:
+        pellet_size:
+          type: string
+      example:
+        pellet_size: 30MM
+    UpdateSinglePelletSizeRequest:
+      title: UpdateSinglePelletSizeRequest
+      required:
+        - pellet_size
+      type: object
+      properties:
+        pellet_size:
+          type: string
+      example:
+        pellet_size: 12MM
+    DeleteSinglePelletSizeRequest:
+      title: DeleteSinglePelletSizeRequest
+      required:
+        - packing
+      type: object
+      properties:
+        packing:
+          type: string
+      example:
+        packing: PP1
+    CreateSKURequest:
+      title: CreateSKURequest
+      required:
+        - sku_kgs
+      type: object
+      properties:
+        sku_kgs:
+          type: integer
+          format: int32
+      example:
+        sku_kgs: 125
+    UpdateSingleSKURequest:
+      title: UpdateSingleSKURequest
+      required:
+        - sku_kgs
+      type: object
+      properties:
+        sku_kgs:
+          type: integer
+          format: int32
+      example:
+        sku_kgs: 13
+    DeleteSingleSKURequest:
+      title: DeleteSingleSKURequest
+      required:
+        - packing
+      type: object
+      properties:
+        packing:
+          type: string
+      example:
+        packing: PP1
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+  - name: Auth
+  - name: Items
+  - name: Regions
+  - name: Packing Types
+  - name: Pellet Sizes
+  - name: SKUs
