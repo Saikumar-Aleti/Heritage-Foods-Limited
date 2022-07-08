@@ -21,10 +21,10 @@ paths:
             schema:
               $ref: "#/components/schemas/RegisterUserRequest"
             example:
-              firstName: Saikumar
-              lastName: Aleti
-              email: saikumar.aleti@outlook.com
-              password: Teddy@70880
+              firstName: firstName
+              lastName: lastName
+              email: youremail@mail.com
+              password: Secret@123
         required: true
       responses:
         "200":
@@ -46,8 +46,8 @@ paths:
             schema:
               $ref: "#/components/schemas/LoginUserRequest"
             example:
-              email: saikumaraleti1@outlook.com
-              password: Teddy@70880
+              email: youremail@mail.com
+              password: Secret@123
         required: true
       responses:
         "200":
@@ -125,7 +125,7 @@ paths:
             schema:
               $ref: "#/components/schemas/UpdateSingleItemRequest"
             example:
-              description: Saikuma
+              description: Dairy Deluxe
         required: true
       responses:
         "200":
@@ -309,7 +309,7 @@ paths:
             schema:
               $ref: "#/components/schemas/UpdateSinglePackingTypeRequest"
             example:
-              packing: PP1
+              packing: PP
         required: true
       responses:
         "200":
