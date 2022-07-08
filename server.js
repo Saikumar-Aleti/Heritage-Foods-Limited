@@ -73,15 +73,15 @@ const port = process.env.PORT || 4000;
 const syncModels = async () => {
   try {
     await sync();
-    await syncData();
+    /* await syncData(); */
   } catch (error) {
     console.log(`Model synchronization failed! ${error}`);
   }
 };
 
-const syncData = async () => {
+const syncData = () => {
   try {
-    await dataInsertion();
+    dataInsertion();
   } catch (error) {
     console.log(`Data synchronization failed! ${error}`);
   }

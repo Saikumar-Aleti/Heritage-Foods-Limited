@@ -5,8 +5,9 @@ const PelletSize = require("../models/PelletSizeModel");
 const SKU = require("../models/SKUsModel");
 const ProductPrice = require("../models/PriceModel");
 
-const dataInsertion = () => {
+const dataInsertion = async () => {
   try {
+    await Packing.create({ packing: "PP" });
     Item.bulkCreate([
       {
         description: "Dairy Deluxe",
@@ -21,7 +22,7 @@ const dataInsertion = () => {
         description: "Dairy Power",
       },
     ]);
-    Region.bulkCreate([
+    await Region.bulkCreate([
       {
         name: "Vijayawada",
       },
@@ -32,13 +33,13 @@ const dataInsertion = () => {
         name: "WG and EG",
       },
     ]);
-    SKU.bulkCreate([
+    await SKU.bulkCreate([
       { sku_kgs: 25 },
       { sku_kgs: 50 },
       { sku_kgs: 100 },
       { sku_kgs: 125 },
     ]);
-    PelletSize.bulkCreate([
+    await PelletSize.bulkCreate([
       { pellet_size: "4MM" },
       { pellet_size: "6MM" },
       { pellet_size: "12MM" },
@@ -46,30 +47,7 @@ const dataInsertion = () => {
       { pellet_size: "25MM" },
       { pellet_size: "30MM" },
     ]);
-    ProductPrice.bulkCreate([
-      {
-        region_id: 1,
-        item_id: 1,
-
-        sku_id: 2,
-        pellet_size_id: 2,
-        packing_id: 1,
-        pellet_price: 809,
-        mash_price: 700,
-      },
-      {
-        region_id: 1,
-        item_id: 2,
-
-        sku_id: 1,
-        pellet_size_id: 2,
-        packing_id: 1,
-        pellet_price: 809,
-        mash_price: 700,
-      },
-    ]);
-    Packing.create({ packing: "PP" });
-    ProductPrice.bulkCreate([
+    await ProductPrice.bulkCreate([
       {
         region_id: 1,
         item_id: 1,
