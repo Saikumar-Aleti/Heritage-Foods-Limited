@@ -627,16 +627,6 @@ components:
           type: string
       example:
         packing: PP
-    DeleteSinglePackingTypeRequest:
-      title: DeleteSinglePackingTypeRequest
-      required:
-        - packing
-      type: object
-      properties:
-        packing:
-          type: string
-      example:
-        packing: PP
     CreatePelletSizeRequest:
       title: CreatePelletSizeRequest
       required:
@@ -657,16 +647,6 @@ components:
           type: string
       example:
         pellet_size: 12MM
-    DeleteSinglePelletSizeRequest:
-      title: DeleteSinglePelletSizeRequest
-      required:
-        - packing
-      type: object
-      properties:
-        packing:
-          type: string
-      example:
-        packing: PP
     CreateSKURequest:
       title: CreateSKURequest
       required:
@@ -689,16 +669,6 @@ components:
           format: int32
       example:
         sku_kgs: 13
-    DeleteSingleSKURequest:
-      title: DeleteSingleSKURequest
-      required:
-        - packing
-      type: object
-      properties:
-        packing:
-          type: string
-      example:
-        packing: PP
   securitySchemes:
     bearer:
       type: http
