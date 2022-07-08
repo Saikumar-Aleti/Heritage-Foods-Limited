@@ -4,7 +4,7 @@ info:
   contact: {}
   version: "1.0"
 servers:
-  - url: https://heritage-foods-limited-01.herokuapp.com/api/v1
+  - url: https://heritage-foods-limited-01.herokuapp.com/
     variables: {}
 paths:
   /auth/register:
@@ -21,10 +21,10 @@ paths:
             schema:
               $ref: "#/components/schemas/RegisterUserRequest"
             example:
-              firstName: firstNmae
-              lastName: lastName
-              email: youremail@mail.com
-              password: Secret@123
+              firstName: Saikumar
+              lastName: Aleti
+              email: saikumar.aleti@outlook.com
+              password: Teddy@70880
         required: true
       responses:
         "200":
@@ -46,8 +46,8 @@ paths:
             schema:
               $ref: "#/components/schemas/LoginUserRequest"
             example:
-              email: youremail@mail.com
-              password: Secret@123
+              email: saikumaraleti1@outlook.com
+              password: Teddy@70880
         required: true
       responses:
         "200":
@@ -515,6 +515,20 @@ paths:
       deprecated: false
       security:
         - bearer: []
+  /catalog/product-prices:
+    get:
+      tags:
+        - Product Prices
+      summary: Get All Product Prices
+      operationId: GetAllProductPrices
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
 components:
   schemas:
     RegisterUserRequest:
@@ -551,7 +565,7 @@ components:
         password:
           type: string
       example:
-        email: youremail@mail.co
+        email: youremail@mail.com
         password: Secret@123
     CreateItemRequest:
       title: CreateItemRequest
@@ -572,7 +586,7 @@ components:
         description:
           type: string
       example:
-        description: Saikuma
+        description: Dairy Deluxe
     CreateRegionRequest:
       title: CreateRegionRequest
       required:
@@ -612,7 +626,7 @@ components:
         packing:
           type: string
       example:
-        packing: PP1
+        packing: PP
     DeleteSinglePackingTypeRequest:
       title: DeleteSinglePackingTypeRequest
       required:
@@ -622,7 +636,7 @@ components:
         packing:
           type: string
       example:
-        packing: PP1
+        packing: PP
     CreatePelletSizeRequest:
       title: CreatePelletSizeRequest
       required:
@@ -652,7 +666,7 @@ components:
         packing:
           type: string
       example:
-        packing: PP1
+        packing: PP
     CreateSKURequest:
       title: CreateSKURequest
       required:
@@ -684,7 +698,7 @@ components:
         packing:
           type: string
       example:
-        packing: PP1
+        packing: PP
   securitySchemes:
     bearer:
       type: http
@@ -697,3 +711,4 @@ tags:
   - name: Packing Types
   - name: Pellet Sizes
   - name: SKUs
+  - name: Product Prices
