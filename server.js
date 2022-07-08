@@ -20,6 +20,9 @@ const { connectDB } = require("./db/connect");
 //DB Sync
 const { sync } = require("./db/sync");
 
+//Data Insertion
+const dataInsertion = require("./utils/dataInsertion");
+
 //Routers
 const authRouter = require("./routes/authRouter");
 const itemsRouter = require("./routes/itemsRouter");
@@ -27,6 +30,7 @@ const regionsRouter = require("./routes/regionsRouter");
 const SKUsRouter = require("./routes/SKUsRouter");
 const pelletSizeRouter = require("./routes/pelletSizeRouter");
 const packingRouter = require("./routes/packingRouter");
+const PriceRouter = require("./routes/PriceRouter");
 
 //Middleware
 const { notFoundMiddleware } = require("./middleware/notFound");
@@ -58,6 +62,7 @@ app.use("/api/v1/catalog/regions", authenticateUser, regionsRouter);
 app.use("/api/v1/catalog/skus", authenticateUser, SKUsRouter);
 app.use("/api/v1/catalog/pellet-size", authenticateUser, pelletSizeRouter);
 app.use("/api/v1/catalog/packing", authenticateUser, packingRouter);
+app.use("/api/v1/catalog/product-prices", authenticateUser, PriceRouter);
 
 app.use(notFoundMiddleware);
 
@@ -68,15 +73,24 @@ const port = process.env.PORT || 4000;
 const syncModels = async () => {
   try {
     await sync();
+    await syncData();
   } catch (error) {
     console.log(`Model synchronization failed! ${error}`);
+  }
+};
+
+const syncData = async () => {
+  try {
+    await dataInsertion();
+  } catch (error) {
+    console.log(`Data synchronization failed! ${error}`);
   }
 };
 
 const start = async () => {
   try {
     await connectDB();
-    syncModels();
+    await syncModels();
     app.listen(port, () => {
       console.log(`Server is running on port ${port}...`);
     });
